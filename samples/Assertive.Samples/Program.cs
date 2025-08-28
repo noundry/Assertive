@@ -52,7 +52,7 @@ namespace Assertive.Samples
             Console.WriteLine("Example 3: Null Value Assertions");
             try
             {
-                string nullValue = null;
+                string? nullValue = null;
                 nullValue
                     .Assert()
                     .IsNull();
@@ -188,15 +188,13 @@ namespace Assertive.Samples
             }
 
             Console.WriteLine("=== Sample execution completed ===");
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
         }
     }
 
     // Sample class for demonstration
     public class Person
     {
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public int Age { get; set; }
     }
 }

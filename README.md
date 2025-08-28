@@ -1,8 +1,8 @@
 # Assertive: Fluent Assertions Made Easy
 
-**Assertive** is a simple yet powerful **source-only** fluent assertion library for .NET, making your tests readable, intuitive, and expressive without external dependencies.
+**Assertive** is a simple yet powerful fluent assertion library for .NET, making your tests readable, intuitive, and expressive with zero runtime dependencies.
 
-[![NuGet](https://img.shields.io/nuget/v/Assertive.Source.svg?style=flat-square)](https://www.nuget.org/packages/Assertive.Source)
+[![NuGet](https://img.shields.io/nuget/v/Assertive.svg?style=flat-square)](https://www.nuget.org/packages/Assertive)
 ![License](https://img.shields.io/github/license/plsft/Assertive?style=flat-square)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/plsft/Assertive/dotnet.yml?style=flat-square)](https://github.com/plsft/Assertive/actions)
 
@@ -11,12 +11,13 @@
 ## Why Choose Assertive?
 
 - **Fluent and readable** assertions that make your tests self-documenting
-- **Source-only** package—zero runtime dependencies
+- **Zero runtime dependencies** for clean, lightweight integration
 - **Easy integration** into your existing projects
 - **Intuitive API** for clear, expressive tests
 - **Clean error messages** for quicker debugging
 - **Comprehensive assertions** for common scenarios
 - **Extensible design** for custom validation logic
+- **High performance** with compiled binary distribution
 
 ---
 
@@ -25,13 +26,13 @@
 Install directly from NuGet:
 
 ```bash
-dotnet add package Assertive.Source
+dotnet add package Assertive
 ```
 
 Or add to your `.csproj`:
 
 ```xml
-<PackageReference Include="Assertive.Source" Version="1.0.0" />
+<PackageReference Include="Assertive" Version="1.0.0" />
 ```
 
 ---
@@ -295,7 +296,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/plsft/Assertive/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/plsft/Assertive/discussions)
-- **NuGet**: [Assertive.Source](https://www.nuget.org/packages/Assertive.Source)
+- **NuGet**: [Assertive](https://www.nuget.org/packages/Assertive)
 
 ---
 
