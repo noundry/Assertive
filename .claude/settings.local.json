@@ -6,7 +6,10 @@
       "Bash(del srcAssertiveClass1.cs)",
       "Bash(dotnet add reference:*)",
       "Bash(dotnet build)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(del \"C:\\Work\\Experimental\\Assertive\\Assertive.Source.nuspec\")",
+      "Bash(rm:*)",
+      "Bash(dotnet build:*)"
     ],
     "deny": [],
     "ask": []

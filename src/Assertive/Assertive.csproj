@@ -4,6 +4,28 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Metadata -->
+    <PackageId>Assertive</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>plsft</Authors>
+    <Description>A simple, fluent, and expressive assertion library for .NET. Zero dependencies, maximum readability.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/plsft/Assertive</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/plsft/Assertive.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>assert fluent testing validation csharp dotnet assertions unit-testing</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    
+    <!-- Generate package on build -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
 
 </Project>
