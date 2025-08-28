@@ -1,0 +1,238 @@
+/*
+Assertive/
++-- src/
+¦   +-- Assertive.cs
++-- Assertive.Source.nuspec
+
+
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Assertive.Source</id>
+    <version>1.0.0</version>
+    <authors>YourName</authors>
+    <owners>YourName</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/YourGitHub/Assertive</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/YourGitHub/Assertive/main/assets/icon.png</iconUrl>
+    <description>A simple, fluent, and expressive source-only assertion library for .NET.</description>
+    <tags>assert fluent testing source-only validation csharp dotnet</tags>
+    <repository type="git" url="https://github.com/YourGitHub/Assertive.git" />
+  </metadata>
+  <files>
+    <file src="src\Assertive.cs" target="contentFiles\cs\any\" />
+  </files>
+</package>
+
+
+```shell
+dotnet tool install --global NuGet.CommandLine
+```
+
+```shell
+nuget pack Assertive.Source.nuspec
+```
+
+```shell
+nuget push Assertive.Source.1.0.0.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey YOUR_NUGET_API_KEY
+```
+
+
+
+
+# ?? Assertive: Fluent Assertions Made Easy, offered as a source only nuget package by Noundry.
+
+**Assertive** is a simple yet powerful **source-only** fluent assertion library for .NET, making your tests readable, intuitive, and expressive without external dependencies.
+
+[![NuGet](https://img.shields.io/nuget/v/Assertive.Source.svg?style=flat-square)](https://www.nuget.org/packages/Assertive.Source)
+![License](https://img.shields.io/github/license/YourGitHub/Assertive?style=flat-square)
+
+---
+
+## ?? Why Choose Assertive?
+
+- ? **Fluent and readable** assertions.
+- ? **Source-only** package—zero dependencies.
+- ? **Easy integration** into your existing projects.
+- ? **Intuitive API** for clear, expressive tests.
+- ? **Clean error messages** for quicker debugging.
+
+---
+
+## ?? Quick Installation
+
+Install directly from NuGet:
+
+```bash
+dotnet add package Assertive.Source
+```
+
+## Usage 
+
+"Hello, Assertive!"
+    .Assert()
+    .IsNotNull()
+    .IsEqualTo("Hello, Assertive!")
+    .IsOfType<string>()
+    .Satisfies(s => s.Length > 5, "String length should exceed 5 characters.");
+
+// Integer assertions with predicates
+28.Assert()
+    .IsNotNull()
+    .IsEqualTo(42)
+    .IsOfType<int>()
+    .Satisfies(x => x > 0, "Number should be positive.")
+    .Fails(x => x < 0, "Number should not be negative.");
+
+
+## ?? Assertions Included
+
+| Assertion             | Description                                 |
+|-----------------------|---------------------------------------------|
+| `IsNotNull()`         | Ensures the object isn't null.              |
+| `IsNull()`            | Ensures the object is null.                 |
+| `IsEqualTo(value)`    | Checks equality with expected value.        |
+| `IsNotEqualTo(value)` | Checks inequality with specified value.     |
+| `IsOfType<T>()`       | Checks object's exact type.                 |
+| `IsNotOfType<T>()`    | Ensures object isn't the specified type.    |
+| `Satisfies(predicate)`| Validates custom conditions.                |
+| `Fails(predicate)`    | Ensures object doesn't match a condition.   |
+
+---
+
+## ?? Contribute
+
+Assertive is open-source, and contributions are warmly welcomed!
+
+- Fork this repository ??
+- Create your feature branch:  
+
+```bash
+git checkout -b feature/YourAwesomeFeature
+```
+
+*/
+
+// Example 1: Testing strings
+"Hello, Assertive!"
+	.Assert()
+	.IsNotNull()
+	.IsOfType<string>()
+	.IsEqualTo("Hello, Assertive!")
+	.IsNotEqualTo("World")
+	.Satisfies(s => s.Length > 5, "String should be longer than 5 characters.");
+
+// Example 2: Testing integers
+100
+	.Assert()
+	.IsNotNull()
+	.IsOfType<int>()
+	.IsEqualTo(100)
+	.IsNotEqualTo(42)
+	.Satisfies(x => x > 0, "Number should be positive.")
+	.Fails(x => x < 0, "Number should not be negative.");
+
+// Example 3: Testing null
+string nullValue = null;
+nullValue
+	.Assert()
+	.IsNull();
+
+// Example 4: Testing custom objects
+var date = DateTime.Now;
+date
+	.Assert()
+	.IsNotNull()
+	.IsOfType<DateTime>()
+	.Satisfies(d => d.Year >= 2024, "Year should be at least 2024.");
+
+// Example 5: Testing failing scenario (will throw exception)
+try
+{
+	"Assertive"
+		.Assert()
+		.IsEqualTo("AnotherString"); // This will fail
+}
+catch (Exception ex)
+{
+	Console.WriteLine($"Assertion failed as expected: {ex.Message}");
+}
+
+
+
+public static class AssertiveExtensions
+{
+	public static Assertive<T> Assert<T>(this T value)
+	{
+		return new Assertive<T>(value);
+	}
+
+	public class Assertive<T>
+	{
+		private readonly T _value;
+
+		public Assertive(T value)
+		{
+			_value = value;
+		}
+
+		public Assertive<T> IsNotNull()
+		{
+			if (_value == null)
+				throw new InvalidOperationException("Expected value to not be null.");
+				
+			return this;
+		}
+
+		public Assertive<T> IsNull()
+		{
+			if (_value != null)
+				throw new InvalidOperationException("Expected value to be null.");
+				
+			return this;
+		}
+
+		public Assertive<T> IsEqualTo(T expected)
+		{
+			if (!Equals(_value, expected))
+				throw new InvalidOperationException($"Expected value '{expected}', but was '{_value}'.");
+			return this;
+		}
+
+		public Assertive<T> IsNotEqualTo(T unexpected)
+		{
+			if (Equals(_value, unexpected))
+				throw new InvalidOperationException($"Expected value to not be '{unexpected}', but it was.");
+			return this;
+		}
+
+		public Assertive<T> IsOfType<U>()
+		{
+			if (!(_value is U))
+				throw new InvalidOperationException($"Expected type '{typeof(U).Name}', but found '{(_value == null ? "_value == null" : _value.GetType().Name)}'.");
+				
+			return this;
+		}
+
+		public Assertive<T> IsNotOfType<U>()
+		{
+			if (_value is U)
+				throw new InvalidOperationException($"Did not expect type '{typeof(U).Name}', but found it.");
+			return this;
+		}
+
+		public Assertive<T> Satisfies(Func<T, bool> predicate, string message = "Value did not satisfy the condition.")
+		{
+			if (!predicate(_value))
+				throw new InvalidOperationException(message);
+			return this;
+		}
+
+		public Assertive<T> Fails(Func<T, bool> predicate, string message = "Value unexpectedly satisfied the condition.")
+		{
+			if (predicate(_value))
+				throw new InvalidOperationException(message);
+			return this;
+		}
+	}
+}

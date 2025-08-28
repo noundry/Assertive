@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet new:*)",
+      "Bash(dotnet sln add:*)",
+      "Bash(del srcAssertiveClass1.cs)",
+      "Bash(dotnet add reference:*)",
+      "Bash(dotnet build)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
