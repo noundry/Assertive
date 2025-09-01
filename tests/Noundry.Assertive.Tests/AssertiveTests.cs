@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Xunit;
-using Assertive;
+using Noundry.Assertive;
 
-namespace Assertive.Tests
+namespace Noundry.Assertive.Tests
 {
     public class AssertiveTests
     {

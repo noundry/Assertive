@@ -1,14 +1,14 @@
-# Assertive: Fluent Assertions Made Easy
+# Noundry.Assertive: Fluent Assertions Made Easy
 
-**Assertive** is a simple yet powerful fluent assertion library for .NET, making your tests readable, intuitive, and expressive with zero runtime dependencies.
+**Noundry.Assertive** is a simple yet powerful fluent assertion library for .NET, making your tests readable, intuitive, and expressive with zero runtime dependencies.
 
-[![NuGet](https://img.shields.io/nuget/v/Assertive.svg?style=flat-square)](https://www.nuget.org/packages/Assertive)
-![License](https://img.shields.io/github/license/plsft/Assertive?style=flat-square)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/plsft/Assertive/dotnet.yml?style=flat-square)](https://github.com/plsft/Assertive/actions)
+[![NuGet](https://img.shields.io/nuget/v/Noundry.Assertive.svg?style=flat-square)](https://www.nuget.org/packages/Noundry.Assertive)
+![License](https://img.shields.io/github/license/noundry/Noundry.Assertive?style=flat-square)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/noundry/Noundry.Assertive/dotnet.yml?style=flat-square)](https://github.com/noundry/Noundry.Assertive/actions)
 
 ---
 
-## Why Choose Assertive?
+## Why Choose Noundry.Assertive?
 
 - **Fluent and readable** assertions that make your tests self-documenting
 - **Zero runtime dependencies** for clean, lightweight integration
@@ -26,13 +26,13 @@
 Install directly from NuGet:
 
 ```bash
-dotnet add package Assertive
+dotnet add package Noundry.Assertive
 ```
 
 Or add to your `.csproj`:
 
 ```xml
-<PackageReference Include="Assertive" Version="1.0.0" />
+<PackageReference Include="Noundry.Assertive" Version="1.0.0" />
 ```
 
 ---
@@ -42,10 +42,12 @@ Or add to your `.csproj`:
 ### Basic Assertions
 
 ```csharp
-"Hello, Assertive!"
+using Noundry.Assertive;
+
+"Hello, World!"
     .Assert()
     .IsNotNull()
-    .IsEqualTo("Hello, Assertive!")
+    .IsEqualTo("Hello, World!")
     .IsOfType<string>()
     .Satisfies(s => s.Length > 5, "String length should exceed 5 characters");
 ```
@@ -53,6 +55,8 @@ Or add to your `.csproj`:
 ### Numeric Assertions
 
 ```csharp
+using Noundry.Assertive;
+
 42.Assert()
     .IsNotNull()
     .IsEqualTo(42)
@@ -65,6 +69,8 @@ Or add to your `.csproj`:
 ### Collection Assertions
 
 ```csharp
+using Noundry.Assertive;
+
 var numbers = new List<int> { 1, 2, 3, 4, 5 };
 numbers.Assert()
     .IsNotEmpty<int>()
@@ -76,6 +82,8 @@ numbers.Assert()
 ### Null Handling
 
 ```csharp
+using Noundry.Assertive;
+
 string nullValue = null;
 nullValue.Assert().IsNull();
 
@@ -86,6 +94,8 @@ notNull.Assert().IsNotNull();
 ### Custom Objects with Context
 
 ```csharp
+using Noundry.Assertive;
+
 var person = new Person { Name = "John", Age = 30 };
 person.Assert()
     .WithContext("Person validation")
@@ -154,6 +164,8 @@ Assertive throws `AssertionException` when assertions fail, providing:
 - Optional context information
 
 ```csharp
+using Noundry.Assertive;
+
 try
 {
     42.Assert()
@@ -176,6 +188,8 @@ catch (AssertionException ex)
 All assertion methods return the `Assertive<T>` instance, enabling fluent chaining:
 
 ```csharp
+using Noundry.Assertive;
+
 myObject
     .Assert()
     .IsNotNull()
@@ -188,6 +202,8 @@ myObject
 Use `Satisfies` and `Fails` for custom validation logic:
 
 ```csharp
+using Noundry.Assertive;
+
 email.Assert()
     .Satisfies(e => e.Contains("@"), "Email should contain @")
     .Satisfies(e => e.EndsWith(".com"), "Email should end with .com");
@@ -197,6 +213,8 @@ email.Assert()
 Add context to make error messages more descriptive:
 
 ```csharp
+using Noundry.Assertive;
+
 user.Assert()
     .WithContext("User registration validation")
     .Satisfies(u => u.Age >= 13, "User must be at least 13 years old");
@@ -218,6 +236,9 @@ user.Assert()
 
 ### xUnit
 ```csharp
+using Noundry.Assertive;
+using Xunit;
+
 [Fact]
 public void TestMethod()
 {
@@ -230,6 +251,9 @@ public void TestMethod()
 
 ### NUnit
 ```csharp
+using Noundry.Assertive;
+using NUnit.Framework;
+
 [Test]
 public void TestMethod()
 {
@@ -242,6 +266,9 @@ public void TestMethod()
 
 ### MSTest
 ```csharp
+using Noundry.Assertive;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 [TestMethod]
 public void TestMethod()
 {
@@ -268,8 +295,8 @@ We welcome contributions! To contribute:
 
 ```bash
 # Clone the repository
-git clone https://github.com/plsft/Assertive.git
-cd Assertive
+git clone https://github.com/noundry/Noundry.Assertive.git
+cd Noundry.Assertive
 
 # Restore dependencies
 dotnet restore
@@ -280,8 +307,8 @@ dotnet build
 # Run tests
 dotnet test
 
-# Run samples
-dotnet run --project samples/Assertive.Samples
+# Run examples
+dotnet run --project examples/Noundry.Assertive.Examples
 ```
 
 ---
@@ -294,9 +321,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/plsft/Assertive/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/plsft/Assertive/discussions)
-- **NuGet**: [Assertive](https://www.nuget.org/packages/Assertive)
+- **Issues**: [GitHub Issues](https://github.com/noundry/Noundry.Assertive/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/noundry/Noundry.Assertive/discussions)
+- **NuGet**: [Noundry.Assertive](https://www.nuget.org/packages/Noundry.Assertive)
 
 ---
 
@@ -311,4 +338,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ by the Assertive community
+Made with ❤️ by the Noundry.Assertive community

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Assertive
+namespace Noundry.Assertive
 {
     /// <summary>
     /// Extension methods to enable fluent assertions on any object.

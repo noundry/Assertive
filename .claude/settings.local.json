@@ -12,7 +12,17 @@
       "Bash(dotnet build:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(dotnet run:*)"
+      "Bash(dotnet run:*)",
+      "Bash(dotnet test)",
+      "Bash(move:*)",
+      "Bash(dotnet test:*)",
+      "Bash(dotnet pack:*)",
+      "Bash(dotnet list:*)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet nuget verify:*)",
+      "Bash(unzip:*)",
+      "Bash(dotnet nuget:*)",
+      "Bash(dotnet clean:*)"
     ],
     "deny": [],
     "ask": []

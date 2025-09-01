@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Assertive\Assertive.csproj" />
+    <ProjectReference Include="..\..\src\Noundry.Assertive\Noundry.Assertive.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

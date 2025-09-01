@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Assertive;
+using Noundry.Assertive;
 
-namespace Assertive.Samples
+namespace Noundry.Assertive.Examples
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Assertive Library Samples ===\n");
+            Console.WriteLine("=== Noundry.Assertive Library Examples ===\n");
 
             // Example 1: Basic string assertions
             Console.WriteLine("Example 1: String Assertions");
@@ -187,7 +187,7 @@ namespace Assertive.Samples
                 Console.WriteLine($"✗ Dictionary assertion failed: {ex.Message}\n");
             }
 
-            Console.WriteLine("=== Sample execution completed ===");
+            Console.WriteLine("=== Example execution completed ===");
         }
     }
 

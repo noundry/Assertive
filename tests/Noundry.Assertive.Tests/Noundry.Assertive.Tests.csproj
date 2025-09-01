@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Assertive\Assertive.csproj" />
+    <ProjectReference Include="..\..\src\Noundry.Assertive\Noundry.Assertive.csproj" />
   </ItemGroup>
 
 </Project>
